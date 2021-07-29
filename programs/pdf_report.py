@@ -39,7 +39,8 @@ def scorecard(L,key):
 
     #############################################################
     # 2) Sub Title-1 (Bio Data)
-    pdf.setFillColorRGB(0, 0, 255)
+    from reportlab.lib.colors import HexColor
+    pdf.setFillColor(HexColor('#3572a5'))
     pdf.setFont("Courier-Bold", 24)
     pdf.drawCentredString(290,730, sub_title1)
     
@@ -49,13 +50,14 @@ def scorecard(L,key):
 
     text = pdf.beginText(80, 700)
     text.setFillColor(colors.black)
-    text.setFont("Helvetica", 15)
+    text.setFont("Helvetica-Bold", 15)
     for line in L[1:11]:
         text.textLine(line[0])
-        space(text,"Helvetica")
+        space(text,"Helvetica-Bold")
     pdf.drawText(text)
     
     text = pdf.beginText(250, 700)
+    text.setFillColor(colors.darkblue)
     text.setFont("Helvetica-Bold", 15)
     for line in L[1:11]:
         text.textLine(':  '+line[1])
@@ -76,7 +78,7 @@ def scorecard(L,key):
 
     #############################################################
     # 6) Sub Title-2 (Exam Data)
-    pdf.setFillColorRGB(0, 0, 255)
+    pdf.setFillColor(HexColor(0xff8100))
     pdf.setFont("Courier-Bold", 24)
     pdf.drawCentredString(290,400, sub_title2)
     
@@ -88,14 +90,18 @@ def scorecard(L,key):
     text.setFillColor(colors.black)
     
     line=L[-1]  #Final result
+    text.setFillColor(colors.indigo)
     text.textLine(line)
     pdf.drawText(text)
     
     line=L[11]      # Exam date
+    text.textLine('')
+    text.setFillColor(colors.black)
     text.setFont("Helvetica-Bold", 10)
     text.textLine(line[0]+line[1])
     
     # Printing Marks and Answers
+    text.setFillColor(colors.brown)
     text.setFont("Courier-Bold", 10)
     text.textLine('')
     for i in range(0,5,2):
@@ -104,9 +110,10 @@ def scorecard(L,key):
         text.textLine('')
     
     # Final Marks
+    text.setFillColor(colors.green)
+    text.textLine('')
     text.setFont("Helvetica-Bold", 20)
     line = L[18][0]+L[18][1]
-    text.textLine('')
     text.textLine(line)
     
     # Note on Outcome shortcuts
