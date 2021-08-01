@@ -92,7 +92,6 @@ def scorecard(L,key):
     line=L[-1]  #Final result
     text.setFillColor(colors.indigo)
     text.textLine(line)
-    pdf.drawText(text)
     
     line=L[11]      # Exam date
     text.textLine('')
