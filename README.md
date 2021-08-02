@@ -15,4 +15,4 @@
 * >**Note :** This file produces correct output when only in the **programs** folder. Because the path to **Dummy data.xlsx** is with this  folder.
 * **Reports :** This folder contains all the report cards of all students. This is the output folder which contains all the student's PDF's after execution of programs.
 * **main.py :** This is the main executable python file. If you run this file, it will also the same folder named **Reports** inside the **PDF-Reports-main** folder.
-* >**Note :** I am clearing __pycache__ folder for the sake of preserving the programs folder to be same.
+* >**Note :** I am clearing \__pycache__ folder for the sake of preserving the programs folder to be same.
